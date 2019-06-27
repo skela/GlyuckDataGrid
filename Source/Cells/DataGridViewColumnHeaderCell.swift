@@ -7,7 +7,8 @@
 import UIKit
 
 
-open class DataGridViewColumnHeaderCell: DataGridViewBaseHeaderCell {
+open class DataGridViewColumnHeaderCell: DataGridViewBaseHeaderCell
+{
     private static var __once: () = {
         let appearance = DataGridViewColumnHeaderCell.appearance()
         appearance.backgroundColor = UIColor.white
@@ -18,17 +19,20 @@ open class DataGridViewColumnHeaderCell: DataGridViewBaseHeaderCell {
         appearance.borderBottomColor = UIColor(white: 0.73, alpha: 1)
         appearance.borderBottomWidth = 1 / UIScreen.main.scale
         
-        if let labelAppearance = UILabel.glyuck_appearanceWhenContained(in: DataGridViewColumnHeaderCell.self) {
-            if #available(iOS 8.2, *) {
-                labelAppearance.appearanceFont = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
-            } else {
-                labelAppearance.appearanceFont = UIFont(name: "HelveticaNeue", size: 14)
-            }
-            labelAppearance.appearanceTextAlignment = .center
-            labelAppearance.appearanceAdjustsFontSizeToFitWidth = true
-            labelAppearance.appearanceMinimumScaleFactor = 0.5
-            labelAppearance.appearanceNumberOfLines = 0
+        let labelAppearance = UILabel.appearance(whenContainedInInstancesOf:[DataGridViewColumnHeaderCell.self])
+        
+        if #available(iOS 8.2, *)
+        {
+            labelAppearance.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
         }
+        else
+        {
+            labelAppearance.font = UIFont(name: "HelveticaNeue", size: 14)
+        }
+        labelAppearance.textAlignment = .center
+        labelAppearance.adjustsFontSizeToFitWidth = true
+        labelAppearance.minimumScaleFactor = 0.5
+        labelAppearance.numberOfLines = 0
         
     }()
     // MARK: - UIView
