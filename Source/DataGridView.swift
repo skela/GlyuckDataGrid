@@ -173,6 +173,10 @@ import UIKit
      - parameter row:          An index number identifying row that was selected.
      */
     @objc optional func dataGridView(_ dataGridView: DataGridView, didSelectRow row: Int)
+    
+    @objc optional func dataGridViewDidScroll(_ scrollView:UIScrollView)
+    
+    @objc optional func dataGridViewDidChangeAdjustedContentInset(_ scrollView:UIScrollView)
 }
 
 

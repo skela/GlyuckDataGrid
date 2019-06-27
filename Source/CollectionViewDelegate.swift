@@ -41,6 +41,17 @@ open class CollectionViewDelegate:  NSObject, UICollectionViewDelegate {
         dataGridView.unhighlightRow((indexPath as NSIndexPath).section)
     }
 
+    public func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
+        dataGridView.delegate?.dataGridViewDidScroll?(scrollView)
+    }
+    
+    @available(iOS 11.0, *)
+    public func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView)
+    {
+        dataGridView.delegate?.dataGridViewDidChangeAdjustedContentInset?(scrollView)
+    }
+    
     // MARK: - Custom delegate methods
 
     open func collectionView(_ collectionView: UICollectionView, shouldHighlightHeaderForColumn column: Int) -> Bool {
